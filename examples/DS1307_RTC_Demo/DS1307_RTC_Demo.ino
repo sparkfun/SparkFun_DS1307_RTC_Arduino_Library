@@ -38,8 +38,8 @@ void setup()
   rtc.autoTime();
   // Or you can use the rtc.setTime(s, m, h, day, date, month, year)
   // function to explicitly set the time:
-  // e.g. 2:32:16 | Sunday October 31, 2016:
-  // rtc.setTime(16, 32, 2, 1, 31, 10, 16);  // Uncomment to manually set time
+  // e.g. 7:32:16 | Monday October 31, 2016:
+  // rtc.setTime(16, 32, 7, 2, 31, 10, 16);  // Uncomment to manually set time
   // rtc.set12Hour(); // Use rtc.set12Hour to set to 12-hour mode
 }
 
