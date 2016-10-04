@@ -21,10 +21,16 @@ SparkFun Real Time Clock Module (v14)
 // E.g. October 31, 2016: 10/31/16 vs. 31/10/16
 #define PRINT_USA_DATE
 
+#define SQW_INPUT_PIN 2   // Input pin to read SQW
+#define SQW_OUTPUT_PIN 13 // LED to indicate SQW's state
+
 void setup() 
 {
   // Use the serial monitor to view time/date output
   Serial.begin(9600);
+  pinMode(SQW_INPUT_PIN, INPUT_PULLUP);
+  pinMode(SQW_OUTPUT_PIN, OUTPUT);
+  digitalWrite(SQW_OUTPUT_PIN, digitalRead(SQW_INPUT_PIN));
   
   rtc.begin(); // Call rtc.begin() to initialize the library
   // (Optional) Sets the SQW output to a 1Hz square wave.
@@ -56,7 +62,11 @@ void loop()
     printTime(); // Print the new time
     
     lastSecond = rtc.second(); // Update lastSecond value
-  }  
+  }
+
+  // Read the state of the SQW pin and show it on the
+  // pin 13 LED. (It should blink at 1Hz.)
+  digitalWrite(SQW_OUTPUT_PIN, digitalRead(SQW_INPUT_PIN));
 }
 
 void printTime()
@@ -92,4 +102,3 @@ void printTime()
 #endif
   Serial.println(String(rtc.year()));        // Print year
 }
-
