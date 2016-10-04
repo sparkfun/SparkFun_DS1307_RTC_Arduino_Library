@@ -103,7 +103,29 @@ bool DS1307::autoTime()
 {
 	_time[TIME_SECONDS] = DECtoBCD(BUILD_SECOND);
 	_time[TIME_MINUTES] = DECtoBCD(BUILD_MINUTE);
-	_time[TIME_HOURS] = DECtoBCD(BUILD_HOUR);
+	_time[TIME_HOURS] = BUILD_HOUR;
+	if (is12Hour())
+	{
+		uint8_t pmBit = 0;
+		if (_time[TIME_HOURS] <= 11)
+		{
+			if (_time[TIME_HOURS] == 0)
+				_time[TIME_HOURS] = 12;
+		}
+		else
+		{
+			pmBit = TWELVE_HOUR_PM;
+			if (_time[TIME_HOURS] >= 13)
+				_time[TIME_HOURS] -= 12;
+		}
+		DECtoBCD(_time[TIME_HOURS]);
+		_time[TIME_HOURS] |= pmBit;
+		_time[TIME_HOURS] |= TWELVE_HOUR_MODE;
+	}
+	else
+	{
+		DECtoBCD(_time[TIME_HOURS]);
+	}
 	
 	_time[TIME_MONTH] = DECtoBCD(BUILD_MONTH);
 	_time[TIME_DATE] = DECtoBCD(BUILD_DATE);
