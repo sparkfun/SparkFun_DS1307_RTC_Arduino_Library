@@ -19,8 +19,8 @@ Documentation
 --------------
 
 * **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.
-* **[Product Repository](https://github.com/sparkfun/RTC-Module/tree/v1.4)** - Main repository (including hardware files) for the <PRODUCT NAME>.
-* **[Hookup Guide](Learn.SparkFun URL)** - Basic hookup guide for the <PRODUCT NAME>.
+* **[Product Repository](https://github.com/sparkfun/RTC-Module/tree/v1.4)** - Main repository (including hardware files) for the Real Time Clock Module.
+* **[Hookup Guide](https://learn.sparkfun.com/tutorials/real-time-clock-module-hookup-guide)** - Basic hookup guide for the Real Time Clock Module.
 
 Products that use this Library 
 ---------------------------------
