@@ -162,8 +162,8 @@ bool DS1307::update(void)
 				_pm = true;
 			else
 				_pm = false;
+			_time[TIME_HOURS] &= 0x1F; // Mask out 24-hour bit from hours
 		}
-		_time[TIME_HOURS] &= 0x1F; // Mask out 24-hour bit from hours
 		
 		return true;
 	}
