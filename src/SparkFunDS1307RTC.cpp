@@ -118,13 +118,13 @@ bool DS1307::autoTime()
 			if (_time[TIME_HOURS] >= 13)
 				_time[TIME_HOURS] -= 12;
 		}
-		DECtoBCD(_time[TIME_HOURS]);
+		_time[TIME_HOURS] = DECtoBCD(_time[TIME_HOURS]);
 		_time[TIME_HOURS] |= pmBit;
 		_time[TIME_HOURS] |= TWELVE_HOUR_MODE;
 	}
 	else
 	{
-		DECtoBCD(_time[TIME_HOURS]);
+		_time[TIME_HOURS] = DECtoBCD(_time[TIME_HOURS]);
 	}
 	
 	_time[TIME_MONTH] = DECtoBCD(BUILD_MONTH);
